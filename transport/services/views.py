@@ -1,14 +1,33 @@
-from django.http import HttpResponse
+import datetime
 from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'services/index.html')
+    template = 'services/index.html'
+    title = 'Транспорт - Главная'
+    context = {
+        'title': title,
+        'text': 'Здесь будет информация о компании, картинки, текст различных.....',
+        'year': datetime.datetime.now().year
+    }
+    return render(request, template, context)
 
 
 def services(request):
-    return render(request, 'services/services.html')
+    template = 'services/services.html'
+    title = 'Транспорт - Услуги'
+    context = {
+        'title': title,
+        'text': 'Здесь будет перечень всех предоставляемых услуг...',
+    }
+    return render(request, template, context)
 
 
 def contacts(request):
-    return render(request, 'services/contacts.html')
+    template = 'services/contacts.html'
+    title = 'Транспорт - Контакты'
+    context = {
+        'title': title,
+        'text': 'Здесь будут все контакты, адреса и прочие координаты организации',
+    }
+    return render(request, template, context)
