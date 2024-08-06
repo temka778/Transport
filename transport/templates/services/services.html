@@ -2,5 +2,15 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
   <h1>Услуги</h1>
-  <p>{{ text }}</p>
+  {% for unit in technique %}
+  <ul>
+    <li>
+      {{ unit.name }}
+    </li>
+    <li>
+      {{ unit.description }}
+    </li>
+  </ul>
+  {% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
 {% endblock %}

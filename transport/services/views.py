@@ -1,5 +1,5 @@
-import datetime
 from django.shortcuts import render
+from . models import Technique
 
 
 def index(request):
@@ -7,8 +7,7 @@ def index(request):
     title = 'Транспорт - Главная'
     context = {
         'title': title,
-        'text': 'Здесь будет информация о компании, картинки, текст различных.....',
-        'year': datetime.datetime.now().year
+        'text': 'Здесь будет информация о компании, картинки, текст различных.....'
     }
     return render(request, template, context)
 
@@ -16,9 +15,10 @@ def index(request):
 def services(request):
     template = 'services/services.html'
     title = 'Транспорт - Услуги'
+    technique = Technique.objects.all()
     context = {
         'title': title,
-        'text': 'Здесь будет перечень всех предоставляемых услуг...',
+        'technique': technique
     }
     return render(request, template, context)
 
@@ -28,6 +28,6 @@ def contacts(request):
     title = 'Транспорт - Контакты'
     context = {
         'title': title,
-        'text': 'Здесь будут все контакты, адреса и прочие координаты организации',
+        'text': 'Здесь будут все контакты, адреса и прочие координаты организации'
     }
     return render(request, template, context)

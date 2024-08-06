@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Technique
 
-# Register your models here.
+class TechniqueAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+
+
+admin.site.register(Technique, TechniqueAdmin)
