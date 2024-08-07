@@ -3,5 +3,13 @@
   <div class="d-flex align-items-center">
     <img src="{% static 'img/logo.png' %}" width="192" height="108" class="d-inline-block align-top" alt="">
   </div>
-  <button class="btn btn-primary">Войти</button>
+  <div style="display: flex; justify-content: flex-end;">
+    {% if user.is_authenticated %}
+      <form action="{% url 'users:logout' %}" method="post">{% csrf_token %}<button class="btn btn-primary">Выйти</button></form>
+      <button class="btn btn-primary"><a class="nav-link link-light {% if view_name  == 'users:password_change' %} active {% endif %}" href="{% url 'users:password_change' %}">Изменить пароль</a></button>
+    {% else %}
+      <button class="btn btn-primary"><a class="nav-link link-light {% if view_name  == 'users:login' %} active {% endif %}" href="{% url 'users:login' %}">Войти</a></button>
+    {% endif %}
+  </div>
 </div>
+
