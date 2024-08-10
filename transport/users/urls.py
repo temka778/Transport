@@ -8,18 +8,16 @@ from django.contrib.auth.views import (LoginView,
                                        PasswordResetConfirmView)
 from django.urls import path
 
-
-from . import views
-
+from .views import SignUp #, personal_account
 
 app_name = 'users'
 
-
 urlpatterns = [
+   # path('personal_account/<int:pk>/', personal_account, name='personal_account'),
     path('logout/',
          LogoutView.as_view(template_name='users/logged_out.html'),
          name='logout'),
-    path('signup/', views.SignUp.as_view(), name='signup'),
+    path('signup/', SignUp.as_view(), name='signup'),
     path('login/',
          LoginView.as_view(template_name='users/login.html'),
          name='login'),

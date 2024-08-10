@@ -1,15 +1,24 @@
 {% load static %}
 <div class="container d-flex justify-content-between align-items-center">
   <div class="d-flex align-items-center">
-    <img src="{% static 'img/logo.png' %}" width="192" height="108" class="d-inline-block align-top" alt="">
+    <img src="{% static 'img/logo.png' %}" width="96" height="54" class="d-inline-block align-top" alt="">
   </div>
-  <div style="display: flex; justify-content: flex-end;">
+  <div class="col-md-2 offset-md-4">
     {% if user.is_authenticated %}
-      <form action="{% url 'users:logout' %}" method="post">{% csrf_token %}<button class="btn btn-primary">Выйти</button></form>
-      <button class="btn btn-primary"><a class="nav-link link-light {% if view_name  == 'users:password_change' %} active {% endif %}" href="{% url 'users:password_change' %}">Изменить пароль</a></button>
+      <form method="post" action="{% url 'users:logout' %}">
+        {% csrf_token %}
+        <button class="btn btn-primary">Выйти</button>
+      </form>
+      <button class="btn btn-primary">
+        <a class="nav-link link-light {% if view_name  == 'users:password_change' %} active {% endif %}" href="{% url 'users:password_change' %}">Изменить пароль</a>
+      </button>
     {% else %}
-      <button class="btn btn-primary"><a class="nav-link link-light {% if view_name  == 'users:login' %} active {% endif %}" href="{% url 'users:login' %}">Войти</a></button>
+      <button class="btn btn-primary">
+        <a class="nav-link link-light {% if view_name  == 'users:login' %} active {% endif %}" href="{% url 'users:login' %}">Войти</a>
+      </button>
+      <button class="btn btn-primary">
+        <a class="nav-link link-light {% if view_name  == 'users:signup' %} active {% endif %}" href="{% url 'users:signup' %}">Регистрация</a>
+      </button>
     {% endif %}
   </div>
 </div>
-

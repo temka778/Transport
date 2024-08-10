@@ -14,10 +14,9 @@ def index(request):
 
 def services(request):
     template = 'services/services.html'
-    title = 'Транспорт - Услуги'
     technique = Technique.objects.all()
     context = {
-        'title': title,
+        'title': 'Транспорт - Услуги',
         'technique': technique
     }
     return render(request, template, context)

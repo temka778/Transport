@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Личный кабинет{% endblock %}
+{% block content %}
+  <h1>Личный кабинет</h1>
+  {% for unit in user %}
+  <ul>
+    <li>
+      {{ unit.first_name }}
+    </li>
+    <li>
+      {{ unit.last_name }}
+    </li>
+    <li>
+      {{ unit.phone_number }}
+    </li>
+    <li>
+      {{ unit.email }}
+    </li>
+  </ul>
+  {% if not forloop.last %}<hr>{% endif %}
+{% endfor %}
+{% endblock %}

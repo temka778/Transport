@@ -15,7 +15,6 @@
             <div class="col-md-6 offset-md-4">
               <button type="submit" class="btn btn-primary">Войти</button>
               <a href="{% url 'password_reset' %}" class="btn btn-link">Забыли пароль?</a>
-              <button class="btn btn-primary"><a class="nav-link link-light {% if view_name  == 'users:signup' %} active {% endif %}" href="{% url 'users:signup' %}">Регистрация</a></button>
             </div>
           </form>
         </div>
