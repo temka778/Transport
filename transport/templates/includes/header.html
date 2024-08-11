@@ -5,19 +5,19 @@
   </div>
   <div class="col-md-2 offset-md-4">
     {% if user.is_authenticated %}
-      <form method="post" action="{% url 'users:logout' %}">
+      <form method="post" action="{% url 'auth:logout' %}">
         {% csrf_token %}
         <button class="btn btn-primary">Выйти</button>
       </form>
       <button class="btn btn-primary">
-        <a class="nav-link link-light {% if view_name  == 'users:password_change' %} active {% endif %}" href="{% url 'users:password_change' %}">Изменить пароль</a>
+        <a class="nav-link link-light {% if view_name  == 'profile:profile' %} active {% endif %}" href="{% url 'profile:profile' %}">Личный кабинет</a>
       </button>
     {% else %}
       <button class="btn btn-primary">
-        <a class="nav-link link-light {% if view_name  == 'users:login' %} active {% endif %}" href="{% url 'users:login' %}">Войти</a>
+        <a class="nav-link link-light {% if view_name  == 'auth:login' %} active {% endif %}" href="{% url 'auth:login' %}">Войти</a>
       </button>
       <button class="btn btn-primary">
-        <a class="nav-link link-light {% if view_name  == 'users:signup' %} active {% endif %}" href="{% url 'users:signup' %}">Регистрация</a>
+        <a class="nav-link link-light {% if view_name  == 'auth:signup' %} active {% endif %}" href="{% url 'auth:signup' %}">Регистрация</a>
       </button>
     {% endif %}
   </div>
