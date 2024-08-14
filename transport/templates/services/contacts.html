@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
   <h1>{{ heading }}</h1>
   <p>{{ text }}</p>
-  <img src="{% static 'img/logo.png' %}" width="960" height="540">
 {% endblock %}

@@ -23,7 +23,7 @@ def services(request):
 
 
 def contacts(request):
-    template = 'services/index.html'
+    template = 'services/contacts.html'
     context = {
         'title': 'Транспорт - Контакты',
         'heading': 'Контакты',
