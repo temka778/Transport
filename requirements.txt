@@ -2,7 +2,4 @@ asgiref==3.8.1
 Django==5.0.7
 sqlparse==0.5.1
 tzdata==2024.1
-<<<<<<< HEAD
 gunicorn==23.0.0
-=======
->>>>>>> parent of d9581ae (Update requirements.txt)
