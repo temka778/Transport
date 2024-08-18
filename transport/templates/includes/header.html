@@ -3,22 +3,16 @@
   <div class="d-flex align-items-center">
     <img src="{% static 'img/logo.png' %}" width="96" height="54" class="d-inline-block align-top" alt="">
   </div>
-  <div class="col-md-2 offset-md-4">
+  <div class="col-md-4 col-sm-6 d-flex justify-content-end">
     {% if user.is_authenticated %}
-      <form method="post" action="{% url 'auth:logout' %}">
+      <a href="{% url 'profile:profile' %}" class="btn btn-primary me-2">Личный кабинет</a>
+      <form method="post" action="{% url 'auth:logout' %}" class="m-0">
         {% csrf_token %}
-        <button class="btn btn-primary">Выйти</button>
+        <button type="submit" class="btn btn-primary">Выйти</button>
       </form>
-      <button class="btn btn-primary">
-        <a class="nav-link link-light {% if view_name  == 'profile:profile' %} active {% endif %}" href="{% url 'profile:profile' %}">Личный кабинет</a>
-      </button>
     {% else %}
-      <button class="btn btn-primary">
-        <a class="nav-link link-light {% if view_name  == 'auth:login' %} active {% endif %}" href="{% url 'auth:login' %}">Войти</a>
-      </button>
-      <button class="btn btn-primary">
-        <a class="nav-link link-light {% if view_name  == 'auth:signup' %} active {% endif %}" href="{% url 'auth:signup' %}">Регистрация</a>
-      </button>
+      <a href="{% url 'auth:login' %}" class="btn btn-primary me-2">Войти</a>
+      <a href="{% url 'auth:signup' %}" class="btn btn-primary">Регистрация</a>
     {% endif %}
   </div>
 </div>
