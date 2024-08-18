@@ -5,14 +5,14 @@
   </div>
   <div class="col-md-4 col-sm-6 d-flex justify-content-end">
     {% if user.is_authenticated %}
-      <a href="{% url 'profile:profile' %}" class="btn btn-primary me-2">Личный кабинет</a>
+      <a href="{% url 'profile:profile' %}" class="btn btn-dark text-white me-2">Личный кабинет</a>
       <form method="post" action="{% url 'auth:logout' %}" class="m-0">
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary">Выйти</button>
+        <button type="submit" class="btn btn-dark text-white">Выйти</button>
       </form>
     {% else %}
-      <a href="{% url 'auth:login' %}" class="btn btn-primary me-2">Войти</a>
-      <a href="{% url 'auth:signup' %}" class="btn btn-primary">Регистрация</a>
+      <a href="{% url 'auth:login' %}" class="btn btn-dark text-white me-2">Войти</a>
+      <a href="{% url 'auth:signup' %}" class="btn btn-dark text-white">Регистрация</a>
     {% endif %}
   </div>
 </div>
