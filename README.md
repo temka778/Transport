@@ -7,15 +7,15 @@
 В этом приложении в последствии мой брат будет вести свой бизнес: приём заявок, обработка заявок, отклонение, бух. учёт, контроль исполнителей, мониторинг процессов и всё всё всё.
 ### Технологии
 Python 3.12.4
-Django 5.0.7
+Django 5.0.8
 ### Запуск проекта в dev-режиме:
 - Клонируйте код и Гитхаб себе на ПК
 ```
-git clone git@github.com:temka778/Transport.git
+git clone https://github.com/temka778/Transport.git
 ```
 - Перейдите в папку "Transport"
 ```
-cd transport
+cd Transport
 ```
 - Установите и активируйте виртуальное окружение (пример команды для Windows)
 ```
@@ -23,6 +23,13 @@ python -m venv venv
 ```
 ```
 source venv/Scripts/activate
+```
+- Установите и активируйте виртуальное окружение (пример команды для Linux)
+```
+python3 -m venv venv
+```
+```
+source venv/bin/activate
 ```
 - Установите зависимости из файла requirements.txt
 ```
@@ -33,7 +40,7 @@ pip install -r requirements.txt
 cd transport
 ```
 ```
-python3 manage.py runserver
+python manage.py runserver
 ```
 ### Автор
 Артём
