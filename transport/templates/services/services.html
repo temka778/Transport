@@ -1,16 +1,38 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{ title }}{% endblock %}
+
 {% block content %}
-  <h1>Услуги</h1>
-  {% for unit in technique %}
-  <ul>
-    <li>
-      {{ unit.name }}
-    </li>
-    <li>
-      {{ unit.description }}
-    </li>
-  </ul>
-  {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}
+  <div class="container">
+    <h1 class="my-4">Услуги</h1>
+    <div class="row">
+      {% for unit in technique %}
+        <div class="col-md-3 mb-4">
+          <div class="card h-100">
+            {% if unit.image %}
+              <img src="{{ unit.image.url }}" class="card-img-top" alt="{{ unit.name }}">
+            {% else %}
+              <div class="card-img-top bg-light text-center py-5">
+                <p>No image available</p>
+              </div>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ unit.name }}</h5>
+              <p class="card-text">{{ unit.description }}</p>
+              <ul class="list-unstyled">
+                <li><strong>Мощность:</strong> {{ unit.power }} л.с.</li>
+                <li><strong>Грузоподъёмность:</strong> {{ unit.capacity }} кг</li>
+                <li><strong>Габариты:</strong> {{ unit.dimensions }}</li>
+                <li><strong>Масса:</strong> {{ unit.weight }} кг</li>
+                <li><strong>Тип топлива:</strong> {{ unit.fuel_type }}</li>
+                <li><strong>Стоимость аренды на день:</strong> {{ unit.daily_rate }} руб.</li>
+                <li><strong>Стоимость аренды на час:</strong> {{ unit.hourly_rate }} руб.</li>
+                <li><strong>Доступен для аренды:</strong> {{ unit.is_available|yesno:"Да,Нет" }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}
