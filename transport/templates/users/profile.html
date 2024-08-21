@@ -6,5 +6,5 @@
   <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
   <p><strong>Электронная почта:</strong> {{ user.email }}</p>
   <p><strong>Телефон:</strong> {{ user.phone_number }}</p>
-  <a href="{% url 'auth:password_change' %}">Изменить пароль</a>
+  <a href="{% url 'password_change' %}">Изменить пароль</a>
 {% endblock %}

@@ -3,5 +3,4 @@ Django==5.0.8
 sqlparse==0.5.1
 tzdata==2024.1
 gunicorn==23.0.0
-whitenoise==6.7.0
 Pillow==10.4.0
