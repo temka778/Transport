@@ -7,12 +7,9 @@ from .forms import CreationForm
 from .models import User
 
 
-app_name = 'users'
-
-
 class SignUp(CreateView):
     form_class = CreationForm
-    success_url = reverse_lazy('services:index')
+    success_url = reverse_lazy('index')
     template_name = 'users/signup.html'
 
 
@@ -23,3 +20,8 @@ class Profile(LoginRequiredMixin, DetailView):
 
     def get_object(self):
         return self.request.user
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['orders'] = self.request.user.orders.all()
+        return context

@@ -89,14 +89,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')] # на локальном сервере
-#STATIC_ROOT = BASE_DIR / 'static' # на удалённом сервере
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]      # на локальном сервере
+#STATIC_ROOT = BASE_DIR / 'static'                         # на удалённом сервере
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'services:index'
+LOGIN_REDIRECT_URL = 'index'
 
 AUTH_USER_MODEL = 'users.User'
