@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Личный кабинет{% endblock %}
 {% block content %}
   <h1>Личный кабинет</h1>
   {% if user.photo %}
     <img src="{{ user.photo.url }}" alt="Фото профиля" class="img-fluid rounded-circle mb-3" width="150">
   {% else %}
-    <p>Фото профиля не загружено.</p>
+    <p>Фото Вашего профиля пока что не загружено.</p>
   {% endif %}
   <p><strong>Имя:</strong> {{ user.first_name }}</p>
   <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
@@ -15,6 +16,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Фото</th>
           <th>Техника</th>
           <th>Дата начала аренды</th>
           <th>Дата окончания аренды</th>
@@ -25,6 +27,13 @@
       <tbody>
         {% for order in orders %}
         <tr>
+          <td>
+            {% if order.technique.image %}
+              <img src="{{ order.technique.image.url }}" alt="Миниатюра" class="img-thumbnail" width="70">
+            {% else %}
+              <img src="{% static 'img/no_image_available.jpg' %}" alt="Нет изображения" class="img-thumbnail" width="70">
+            {% endif %}
+          </td>
           <td>{{ order.technique.name }}</td>
           <td>{{ order.start_date }}</td>
           <td>{{ order.end_date }}</td>
@@ -37,5 +46,5 @@
   {% else %}
     <p>У вас пока нет заказов.</p>
   {% endif %}
-  <a href="{% url 'password_change' %}">Изменить пароль</a>
+  <a href="{% url 'profile_update' %}" class="btn btn-dark text-white mt-3">Управление профилем</a>
 {% endblock %}

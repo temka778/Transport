@@ -98,5 +98,15 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 AUTH_USER_MODEL = 'users.User'
+
+DEFAULT_FROM_EMAIL = 'av1965k@yandex.ru'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = 'av1965k@yandex.ru'
+EMAIL_HOST_PASSWORD = 'xzqtgfudmymffity'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

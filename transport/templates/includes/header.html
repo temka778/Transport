@@ -1,11 +1,16 @@
 {% load static %}
 <div class="container d-flex justify-content-between align-items-center">
   <div class="d-flex align-items-center">
-    <img src="{% static 'img/logo.png' %}" width="96" height="54" class="d-inline-block align-top" alt="">
+    <a href="{% url 'index' %}">
+      <img src="{% static 'img/logo.png' %}" width="96" height="54" class="d-inline-block align-top" alt="">
+    </a>
   </div>
   <div class="col-md-4 col-sm-6 d-flex justify-content-end">
     {% if user.is_authenticated %}
-      <a href="{% url 'profile' %}" class="btn btn-dark text-white me-2">Личный кабинет</a>
+      {% if user.is_staff %}
+        <a href="/admin/" class="btn btn-dark text-white me-2">Админка</a>
+      {% endif %}
+      <a href="{% url 'profile' %}" class="btn btn-dark text-white me-2">Профиль</a>
       <form method="post" action="{% url 'logout' %}" class="m-0">
         {% csrf_token %}
         <button type="submit" class="btn btn-dark text-white">Выйти</button>
