@@ -35,9 +35,19 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ``` 
-- Перейдите во вложенную папку "transport" и запустите сервер
+- Перейдите во вложенную папку "transport" выполните миграции
 ```
 cd transport
+```
+```
+python manage.py makemigrations
+```
+```
+python manage.py migrate
+```
+- Создайте сразу суперпользователя, для доступа в админку и запустите уже наконец локальный сервер!
+```
+python manage.py createsuperuser
 ```
 ```
 python manage.py runserver

@@ -3,8 +3,11 @@ from django.views.generic.edit import CreateView
 from .models import Order
 from .forms import OrderForm
 from services.models import Technique
-from datetime import timedelta
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
+
+@method_decorator(login_required, name='dispatch')
 class CreateOrderView(CreateView):
     model = Order
     form_class = OrderForm
