@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-mo4m0rc+s20-yd#_3*@&8rw)+*x3+38qtqp*j)c_$+jgn)jg37
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['89.169.173.189', '127.0.0.1', 'localhost', 'transport.sytes.net']
+ALLOWED_HOSTS = ['212.67.11.71', '127.0.0.1', 'localhost', 'xn----dtbingra1ahe.xn--p1ai']
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
@@ -103,11 +103,10 @@ LOGIN_URL = 'login'
 
 AUTH_USER_MODEL = 'users.User'
 
-DEFAULT_FROM_EMAIL = 'av1965k@yandex.ru'
-EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST = 'smtp.beget.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-EMAIL_HOST_USER = 'av1965k@yandex.ru'
-EMAIL_HOST_PASSWORD = 'xzqtgfudmymffity'
+EMAIL_HOST_USER = 'account_nnk_service@xn----dtbingra1ahe.xn--p1ai'
+EMAIL_HOST_PASSWORD = '!XkR8woCcQAG'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

@@ -2,8 +2,8 @@
 Description=gunicorn daemon
 After=network.target
 [Service]
-User=av1965k
-WorkingDirectory=/home/av1965k/Transport/transport
-ExecStart=/home/av1965k/Transport/venv/bin/gunicorn --bind 0.0.0.0:8000 transport.wsgi
+User=root
+WorkingDirectory=/home/Transport/transport
+ExecStart=/home/Transport/venv/bin/gunicorn --bind 0.0.0.0:8000 transport.wsgi
 [Install]
 WantedBy=multi-user.target

@@ -23,7 +23,7 @@ class SignUp(CreateView):
 
         send_mail(
             'Ваш аккаунт был создан!',
-            f'Ваши данные для входа в личный кабинет https://transport.sytes.net \nЛогин: {user.phone_number}\nПароль: {random_password}',
+            f'Ваши данные для входа в личный кабинет https://ННК-Сервис.РФ/ \nЛогин: {user.phone_number}\nПароль: {random_password}',
             None,
             [user.email],
             fail_silently=False,
