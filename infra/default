@@ -1,5 +1,6 @@
 server {
     server_name ннк-сервис.рф;
+    client_max_body_size 100M;
     
     location /static/ {
         alias /home/Transport/transport/static/;

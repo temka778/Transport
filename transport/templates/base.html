@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{% static 'img/fav/fav.ico'%}" type="image">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     
     <meta property="og:title" content="ННК - сервис">
     <meta property="og:description" content="Сервис аренды транспорта и спец. техники">
@@ -28,9 +29,6 @@
     <header class="bg-light py-3">
       {% include 'includes/header.html' %}
     </header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        {% include 'includes/nav.html' %}
-    </nav>
     <main class="container my-5">
       {% block content %}
         Основное содержание

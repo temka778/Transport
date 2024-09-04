@@ -2,9 +2,17 @@
 <div class="container d-flex justify-content-between align-items-center">
   <div class="d-flex align-items-center">
     <a href="{% url 'index' %}">
-      <img src="{% static 'img/logo.jpg' %}" width="96" height="54" class="d-inline-block align-top" alt="">
+      <img src="{% static 'img/logo.png' %}" width="150" class="d-inline-block align-top" alt="">
     </a>
   </div>
+  
+  <!-- Контактная информация -->
+  <div class="d-flex flex-column align-items-center mx-3">
+    <p class="m-0"><strong>Телефон:</strong> +79271635832</p>
+    <p class="m-0"><strong>Почта:</strong> nnk@ннк-сервис.рф</p>
+  </div>
+
+  <!-- Кнопки для пользователя -->
   <div class="col-md-4 col-sm-6 d-flex justify-content-end">
     {% if user.is_authenticated %}
       {% if user.is_staff %}

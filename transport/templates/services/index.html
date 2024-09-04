@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block title %}ННК - Главная{% endblock %}
+{% block title %}ООО "ННК-Сервис"{% endblock %}
 {% block content %}
-  <h1>О компании</h1>
-  <p>ООО "ННК-Сервис" предлагает услуги аренды грузового транспрта и спецтехники</p>
-  <img src="{% static 'img/banner.png' %}" class="img-fluid" alt="Responsive image">
+  <div class="container">
+    {% include 'services/about.html' %}
+    {% include 'services/services.html' %}
+    {% include 'services/contacts.html' %}
+  </div>
 {% endblock %}
