@@ -1,8 +1,8 @@
 <div class="my-4">
-  <h2 class="my-4">Услуги</h1>
+  <h2 class="my-4">Услуги</h2>
   <div class="row">
     {% for unit in technique %}
-      <div class="col-md-3 mb-4">
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
         <div class="card h-100">
           {% if unit.image %}
             <img src="{{ unit.image.url }}" class="card-img-top" alt="{{ unit.name }}">
@@ -22,7 +22,6 @@
               <li><strong>Тип топлива:</strong> {{ unit.fuel_type }}</li>
               <li><strong>Стоимость аренды на день:</strong> {{ unit.daily_rate }} руб.</li>
               <li><strong>Стоимость аренды на час:</strong> {{ unit.hourly_rate }} руб.</li>
-              <li><strong>Доступен для аренды:</strong> {{ unit.is_available|yesno:"Да,Нет" }}</li>
             </ul>
           </div>
           <div class="card-footer text-center">

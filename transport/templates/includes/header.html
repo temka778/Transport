@@ -1,31 +1,29 @@
 {% load static %}
-<div class="container d-flex justify-content-between align-items-center">
+<div class="container d-flex justify-content-between align-items-center flex-wrap">
   <div class="d-flex align-items-center">
     <a href="{% url 'index' %}">
-      <img src="{% static 'img/logo.png' %}" width="150" class="d-inline-block align-top" alt="">
+      <img src="{% static 'img/logo.png' %}" width="210" class="d-inline-block align-top" alt="Логотип">
     </a>
   </div>
-  
-  <!-- Контактная информация -->
-  <div class="d-flex flex-column align-items-center mx-3">
-    <p class="m-0"><strong>Телефон:</strong> +79271635832</p>
-    <p class="m-0"><strong>Почта:</strong> nnk@ннк-сервис.рф</p>
-  </div>
-
-  <!-- Кнопки для пользователя -->
-  <div class="col-md-4 col-sm-6 d-flex justify-content-end">
-    {% if user.is_authenticated %}
-      {% if user.is_staff %}
-        <a href="/admin/" class="btn btn-dark text-white me-2">Админка</a>
+  <div class="d-flex flex-column align-items-end text-end">
+    <div class="mb-2">
+      <p class="m-0 small"><strong>Телефон:</strong> +79271635832</p>
+      <p class="m-0 small"><strong>Почта:</strong> nnk@ннк-сервис.рф</p>
+    </div>
+    <div class="d-flex justify-content-end">
+      {% if user.is_authenticated %}
+        {% if user.is_staff %}
+          <a href="/admin/" class="btn btn-dark text-white me-2">Админка</a>
+        {% endif %}
+        <a href="{% url 'profile' %}" class="btn btn-dark text-white me-2">Профиль</a>
+        <form method="post" action="{% url 'logout' %}" class="m-0">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-dark text-white">Выйти</button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}" class="btn btn-dark text-white me-2">Войти</a>
+        <a href="{% url 'signup' %}" class="btn btn-dark text-white">Регистрация</a>
       {% endif %}
-      <a href="{% url 'profile' %}" class="btn btn-dark text-white me-2">Профиль</a>
-      <form method="post" action="{% url 'logout' %}" class="m-0">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-dark text-white">Выйти</button>
-      </form>
-    {% else %}
-      <a href="{% url 'login' %}" class="btn btn-dark text-white me-2">Войти</a>
-      <a href="{% url 'signup' %}" class="btn btn-dark text-white">Регистрация</a>
-    {% endif %}
+    </div>
   </div>
 </div>

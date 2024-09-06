@@ -11,7 +11,6 @@ class Technique(models.Model):
     dimensions = models.CharField('Габариты (ДxШxВ в метрах)', max_length=50, null=True, blank=True)
     fuel_type = models.CharField('Тип топлива', max_length=50, null=True, blank=True)
     capacity = models.IntegerField('Грузоподъемность (в кг)', null=True, blank=True)
-    is_available = models.BooleanField('Доступна для аренды', default=True)
     image = models.ImageField('Фото техники', upload_to='technique_images/', null=True, blank=True)
 
     class Meta:
