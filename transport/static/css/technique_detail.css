@@ -1,0 +1,17 @@
+.miniature-btn img {
+    cursor: pointer;
+    border: 2px solid transparent;
+    width: 120px;
+    height: 80px;
+  }
+  
+  .miniature-btn img.active {
+    border-color: #007bff;
+  }
+  
+  .miniature-carousel {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 5px;
+  }
+  

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ technique.name }}{% endblock %}
+{% block content %}
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="main-photo mb-3">
+          <img id="main-photo" src="{{ technique.image.url }}" class="d-block w-100" alt="{{ technique.name }}">
+        </div>
+        <div class="miniature-carousel d-flex justify-content-center mb-3">
+          {% for photo in technique.photos.all %}
+            <button type="button" class="miniature-btn mx-1" data-photo="{{ photo.photo.url }}">
+              <img src="{{ photo.photo.url }}" class="img-thumbnail" alt="{{ technique.name }}">
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1>{{ technique.name }}</h1>
+        <p>{{ technique.description }}</p>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Стоимость аренды:</strong> {{ technique.daily_rate }} руб./день</li>
+          <li class="list-group-item"><strong>Вес:</strong> {{ technique.weight }} тонн</li>
+          <li class="list-group-item"><strong>Мощность:</strong> {{ technique.power }} л.с.</li>
+          <li class="list-group-item"><strong>Габариты:</strong> {{ technique.dimensions }}</li>
+          <li class="list-group-item"><strong>Тип топлива:</strong> {{ technique.fuel_type }}</li>
+          <li class="list-group-item"><strong>Грузоподъемность:</strong> {{ technique.capacity }} кг</li>
+        </ul>
+        <a href="{% url 'orders:create' technique.id %}" class="btn btn-dark text-white mt-3">Заказать</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block extra_js %}
+  <script src="{% static 'js/technique_detail.js' %}"></script>
+{% endblock %}

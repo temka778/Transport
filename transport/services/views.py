@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . models import Technique
+from django.views.generic.detail import DetailView
 
 
 def index(request):
@@ -7,3 +8,14 @@ def index(request):
     technique = Technique.objects.all()
     context = {'technique': technique}
     return render(request, template, context)
+
+
+class TechniqueDetail(DetailView):
+    model = Technique
+    template_name = 'technique_detail.html'
+    context_object_name = 'technique'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['photos'] = self.object.photos.all()
+        return context

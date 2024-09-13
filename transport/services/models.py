@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Technique(models.Model):
@@ -17,5 +18,17 @@ class Technique(models.Model):
         verbose_name = "Техника"
         verbose_name_plural = "Техника"
 
+    def get_absolute_url(self):
+            return reverse('technique_detail', args=[str(self.id)])
+
     def __str__(self):
         return self.name
+
+
+class TechniquePhoto(models.Model):
+    technique = models.ForeignKey(Technique, related_name='photos', on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='technique_photos/')
+
+    class Meta:
+        verbose_name = "Фото"
+        verbose_name_plural = "Фотки"

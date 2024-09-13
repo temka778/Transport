@@ -4,11 +4,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="icon" href="{% static 'img/fav/fav.ico'%}" type="image">
+    <meta name="description" content="Сервис аренды грузового транспорта и спецтехники"/>
+
+    <link rel="icon" href="{% static 'img/fav/favicon.ico'%}" type="image">
+
+    <link rel="canonical" href="https://xn----dtbingra1ahe.xn--p1ai/user/login/" />
     
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/technique_detail.css' %}">
     
     <meta property="og:title" content="ООО «ННК-Сервис»">
     <meta property="og:description" content="Сервис аренды грузового транспорта и спецтехники">
@@ -38,5 +42,6 @@
       {% include 'includes/footer.html' %}
     </footer>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    {% block extra_js %}{% endblock %}
   </body>
 </html>

@@ -3,31 +3,32 @@
   <div class="row">
     {% for unit in technique %}
       <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
-        <div class="card h-100">
-          {% if unit.image %}
-            <img src="{{ unit.image.url }}" class="card-img-top" alt="{{ unit.name }}">
-          {% else %}
-            <div class="card-img-top bg-light text-center py-5">
-              <p>No image available</p>
+        <a href="{% url 'technique_detail' unit.id %}" class="text-decoration-none text-dark">
+          <div class="card h-100">
+            {% if unit.image %}
+              <img src="{{ unit.image.url }}" class="card-img-top" alt="{{ unit.name }}">
+            {% else %}
+              <div class="card-img-top bg-light text-center py-5">
+                <p>No image available</p>
+              </div>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ unit.name }}</h5>
+              <p class="card-text">
+                {{ unit.description|slice:":100" }}{% if unit.description|length > 100 %}...{% endif %}
+              </p>
+              <ul class="list-unstyled">
+                <li><strong>Мощность:</strong> {{ unit.power }} л.с.</li>
+                <li><strong>Грузоподъёмность:</strong> {{ unit.capacity }} кг</li>
+                <li><strong>Габариты:</strong> {{ unit.dimensions }}</li>
+                <li><strong>Масса:</strong> {{ unit.weight }} тонн</li>
+                <li><strong>Тип топлива:</strong> {{ unit.fuel_type }}</li>
+                <li><strong>Стоимость аренды на день:</strong> {{ unit.daily_rate }} руб.</li>
+                <li><strong>Стоимость аренды на час:</strong> {{ unit.hourly_rate }} руб.</li>
+              </ul>
             </div>
-          {% endif %}
-          <div class="card-body">
-            <h5 class="card-title">{{ unit.name }}</h5>
-            <p class="card-text">{{ unit.description }}</p>
-            <ul class="list-unstyled">
-              <li><strong>Мощность:</strong> {{ unit.power }} л.с.</li>
-              <li><strong>Грузоподъёмность:</strong> {{ unit.capacity }} кг</li>
-              <li><strong>Габариты:</strong> {{ unit.dimensions }}</li>
-              <li><strong>Масса:</strong> {{ unit.weight }} тонн</li>
-              <li><strong>Тип топлива:</strong> {{ unit.fuel_type }}</li>
-              <li><strong>Стоимость аренды на день:</strong> {{ unit.daily_rate }} руб.</li>
-              <li><strong>Стоимость аренды на час:</strong> {{ unit.hourly_rate }} руб.</li>
-            </ul>
           </div>
-          <div class="card-footer text-center">
-            <a href="{% url 'orders:create' unit.id %}" class="btn btn-dark text-white">Заказать</a>
-          </div>
-        </div>
+        </a>
       </div>
     {% endfor %}
   </div>
