@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+<meta name="robots" content="noindex, nofollow">
+{% block title %}Страница не найдена!{% endblock %}
+{% block content %}
+  <h2>Страница https://ннк-сервис.рф{{ path }} не найдена...</h2>
+  <p>Возможно, неправильно указан путь в адресной строке или страница была удалена.</p>
+  <p><a href="{% url 'index' %}">Вернитесь на главную!</a></p>
+{% endblock %}

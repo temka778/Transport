@@ -7,22 +7,19 @@
     <meta name="description" content="Сервис аренды грузового транспорта и спецтехники"/>
 
     <link rel="icon" href="{% static 'img/fav/favicon.ico'%}" type="image">
-
     <link rel="canonical" href="https://xn----dtbingra1ahe.xn--p1ai/user/login/" />
-    
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/technique_detail.css' %}">
     
     <meta property="og:title" content="ООО «ННК-Сервис»">
     <meta property="og:description" content="Сервис аренды грузового транспорта и спецтехники">
-    <meta property="og:image" content="{% static 'img/fav/fav.png' %}">
+    <meta property="og:image" content="{% static 'img/logo.png' %}">
     <meta property="og:url" content="https://ННК-Сервис.РФ/">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ООО «ННК-Сервис»">
     <meta name="twitter:description" content="Сервис аренды грузового транспорта и спецтехники">
-    <meta name="twitter:image" content="{% static 'img/fav/fav.png' %}">
+    <meta name="twitter:image" content="{% static 'img/logo.png' %}">
+    {% block extra_css %}{% endblock %}
     <title>
       {% block title %}
         Имя вкладки

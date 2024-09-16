@@ -1,17 +1,63 @@
+/* Основное фото */
+.main-photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+}
+
+#main-photo {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Миниатюры */
+.miniature-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Ограничиваем видимую область миниатюр */
+}
+
+.miniature-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+/* Миниатюры */
+.miniature-btn {
+  flex: 0 0 auto; /* Миниатюры не изменяют свой размер при прокрутке */
+  margin: 0 10px; /* Отступы между миниатюрами */
+  width: 100px; /* Фиксированная ширина миниатюры */
+  aspect-ratio: auto; /* Соотношение сторон в зависимости от изображения */
+  border: none; /* Убираем рамки */
+  box-shadow: none; /* Убираем любые тени */
+  outline: none; /* Убираем любые внешние контуры */
+}
+
 .miniature-btn img {
-    cursor: pointer;
-    border: 2px solid transparent;
-    width: 120px;
-    height: 80px;
+  width: 100%; /* Миниатюра заполняет доступное пространство */
+  height: 100%; /* Адаптируется по высоте, сохраняя пропорции */
+  object-fit: cover; /* Сохраняем пропорции изображения */
+  cursor: pointer;
+}
+
+
+/* Настраиваем миниатюры под мобильные устройства */
+@media (max-width: 768px) {
+  .miniature-btn {
+    width: 80px; /* Уменьшаем размер миниатюр на мобильных устройствах */
   }
-  
-  .miniature-btn img.active {
-    border-color: #007bff;
+
+  .main-photo-wrapper {
+    height: auto;
+    margin-bottom: 15px;
   }
-  
-  .miniature-carousel {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 5px;
+
+  .miniature-carousel-wrapper {
+    max-width: 100%;
   }
-  
+}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+<meta name="robots" content="noindex, nofollow">
+{% block title %}В доступе отказано!{% endblock %}
+{% block content %}
+  <h2>В доступе отказано.</h2>
+  <p>У вас нет разрешения на просмотр этой страницы.</p>
+  <p>Попробуйте вернуться <a href="{% url 'index' %}">на главную</a>.</p>
+  <p>Или свяжитесь с нами.</p>
+  <p><strong>Почта:</strong> nnk@ннк-сервис.рф</p>
+  <p><strong>Телефон:</strong> +79271635832</p>
+{% endblock %}

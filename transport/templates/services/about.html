@@ -1,4 +1,7 @@
 {% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
 <div class="row mb-5" style="background-image: url('{% static 'img/background.jpg' %}'); background-size: cover; background-position: center;">
   <div class="col-md-4">
     <h2>О компании</h2>

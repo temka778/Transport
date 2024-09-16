@@ -1,6 +1,12 @@
 server {
     server_name ннк-сервис.рф;
     client_max_body_size 100M;
+
+    error_page 500 502 503 504 /50x.html;
+
+    location = /50x.html {
+        alias /home/Transport/transport/templates/core/500nginx.html;
+    }
     
     location /static/ {
         alias /home/Transport/transport/static/;
@@ -15,6 +21,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_intercept_errors on;
     }
     listen 443 ssl;
     ssl_certificate /etc/letsencrypt/live/xn----dtbingra1ahe.xn--p1ai/fullchain.pem;

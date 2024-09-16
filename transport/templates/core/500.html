@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+<meta name="robots" content="noindex, nofollow">
+{% block title %}Ошибка сервера!{% endblock %}
+{% block content %}
+  <h2>Извините, но что-то случилось с сайтом.</h2>
+  <p>В техническую поддержку уже отправлено уведомление.</p>
+  <p>Попробуйте вернуться <a href="{% url 'index' %}">на главную</a>.</p>
+  <p>Или свяжитесь с нами!</p>
+  <p><strong>Почта:</strong> nnk@ннк-сервис.рф</p>
+  <p><strong>Телефон:</strong> +79271635832</p>
+{% endblock %}

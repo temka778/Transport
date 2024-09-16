@@ -1,9 +1,0 @@
-[Unit]
-Description=gunicorn daemon
-After=network.target
-[Service]
-User=root
-WorkingDirectory=/home/Test/Transport/transport
-ExecStart=/home/Test/Transport/venv/bin/gunicorn --bind 0.0.0.0:8001 transport.wsgi
-[Install]
-WantedBy=multi-user.target

@@ -1,37 +1,83 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}{{ technique.name }}{% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/technique_detail.css' %}">
+{% endblock %}
 {% block content %}
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6">
-        <div class="main-photo mb-3">
+        <div class="main-photo-wrapper position-relative mb-3">
           <img id="main-photo" src="{{ technique.image.url }}" class="d-block w-100" alt="{{ technique.name }}">
+          <button id="prev-photo" class="carousel-control-prev position-absolute" type="button">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button id="next-photo" class="carousel-control-next position-absolute" type="button">
+            <span class="carousel-control-next-icon"></span>
+          </button>
         </div>
-        <div class="miniature-carousel d-flex justify-content-center mb-3">
-          {% for photo in technique.photos.all %}
-            <button type="button" class="miniature-btn mx-1" data-photo="{{ photo.photo.url }}">
-              <img src="{{ photo.photo.url }}" class="img-thumbnail" alt="{{ technique.name }}">
-            </button>
-          {% endfor %}
-        </div>
+        <div class="miniature-carousel-wrapper position-relative">
+          <button id="prev-thumbnail" class="carousel-control-prev position-absolute" type="button">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <div class="miniature-carousel d-flex justify-content-start overflow-hidden">
+            {% for photo in technique.photos.all %}
+              <button type="button" class="miniature-btn mx-1" data-photo="{{ photo.photo.url }}">
+                <img src="{{ photo.photo.url }}" class="img-thumbnail" alt="{{ technique.name }}">
+              </button>
+            {% endfor %}
+          </div>
+          <button id="next-thumbnail" class="carousel-control-next position-absolute" type="button">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>        
       </div>
       <div class="col-md-6">
         <h1>{{ technique.name }}</h1>
         <p>{{ technique.description }}</p>
         <ul class="list-group">
-          <li class="list-group-item"><strong>Стоимость аренды:</strong> {{ technique.daily_rate }} руб./день</li>
-          <li class="list-group-item"><strong>Вес:</strong> {{ technique.weight }} тонн</li>
+          <li class="list-group-item"><strong>Вес:</strong> {{ technique.weight }} т.</li>
           <li class="list-group-item"><strong>Мощность:</strong> {{ technique.power }} л.с.</li>
           <li class="list-group-item"><strong>Габариты:</strong> {{ technique.dimensions }}</li>
           <li class="list-group-item"><strong>Тип топлива:</strong> {{ technique.fuel_type }}</li>
-          <li class="list-group-item"><strong>Грузоподъемность:</strong> {{ technique.capacity }} кг</li>
+          <li class="list-group-item"><strong>Грузоподъемность:</strong> {{ technique.capacity }} т.</li>
+          <li class="list-group-item"><strong>Стоимость аренды:</strong> {{ technique.daily_rate }} руб./день</li>
+          <li class="list-group-item"><strong>Стоимость аренды:</strong> {{ technique.hourly_rate }} руб./час</li>
         </ul>
-        <a href="{% url 'orders:create' technique.id %}" class="btn btn-dark text-white mt-3">Заказать</a>
+        <a href="{% url 'orders:create' technique.id %}"
+          class="btn btn-dark text-white mt-3"
+          data-bs-toggle="modal" data-bs-target="#orderModal" 
+          data-technique-id="{{ technique.id }}"
+          {% if not user.is_authenticated %} onclick="location.href='{% url 'login' %}?next={% url 'technique_detail' technique.id %}&open_modal=true'; return false;" {% endif %}>
+          Заказать
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Модальное окно -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderModalLabel">Оформить заказ</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Здесь будет содержимое формы, загруженное через AJAX -->
+          <div id="order-form-content">
+            <div class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 {% endblock %}
 {% block extra_js %}
+  <input type="hidden" id="openModalAfterAuth" value="{{ open_modal_after_auth }}">
   <script src="{% static 'js/technique_detail.js' %}"></script>
 {% endblock %}

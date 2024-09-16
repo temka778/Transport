@@ -14,18 +14,7 @@
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ unit.name }}</h5>
-              <p class="card-text">
-                {{ unit.description|slice:":100" }}{% if unit.description|length > 100 %}...{% endif %}
-              </p>
-              <ul class="list-unstyled">
-                <li><strong>Мощность:</strong> {{ unit.power }} л.с.</li>
-                <li><strong>Грузоподъёмность:</strong> {{ unit.capacity }} кг</li>
-                <li><strong>Габариты:</strong> {{ unit.dimensions }}</li>
-                <li><strong>Масса:</strong> {{ unit.weight }} тонн</li>
-                <li><strong>Тип топлива:</strong> {{ unit.fuel_type }}</li>
-                <li><strong>Стоимость аренды на день:</strong> {{ unit.daily_rate }} руб.</li>
-                <li><strong>Стоимость аренды на час:</strong> {{ unit.hourly_rate }} руб.</li>
-              </ul>
+              <p class="card-text">{{ unit.description }}</p>
             </div>
           </div>
         </a>
