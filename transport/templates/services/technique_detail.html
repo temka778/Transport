@@ -57,10 +57,10 @@
   </div>
   <!-- Модальное окно -->
   <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="orderModalLabel">Оформить заказ</h5>
+          <h1 class="modal-title" id="orderModalLabel">Оформить заказ</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -78,6 +78,7 @@
   </div>
 {% endblock %}
 {% block extra_js %}
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   <input type="hidden" id="openModalAfterAuth" value="{{ open_modal_after_auth }}">
   <script src="{% static 'js/technique_detail.js' %}"></script>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import JsonResponse
 from .models import Order
 from .forms import OrderForm
@@ -22,6 +22,13 @@ class CreateOrderView(CreateView):
         rental_duration = (form.instance.end_date - form.instance.start_date).days
         form.instance.total_cost = rental_duration * form.instance.technique.daily_rate
         return super().form_valid(form)
+
+
+@login_required
+def delete_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    order.delete()
+    return redirect('profile')
 
 
 @login_required

@@ -22,23 +22,45 @@
           <th>Дата окончания аренды</th>
           <th>Статус</th>
           <th>Общая стоимость</th>
+          <th>Удалить</th>
         </tr>
       </thead>
       <tbody>
         {% for order in orders %}
         <tr>
           <td>
-            {% if order.technique.image %}
-              <img src="{{ order.technique.image.url }}" alt="Миниатюра" class="img-thumbnail" width="70">
-            {% else %}
-              <img src="{% static 'img/no_image_available.jpg' %}" alt="Нет изображения" class="img-thumbnail" width="70">
-            {% endif %}
+            <a href="{{ order.technique.get_absolute_url }}">
+              <img src="{{ order.technique.image.url }}" alt="{{ order.technique.name }}" class="img-thumbnail" width="70">
+            </a>
           </td>
           <td>{{ order.technique.name }}</td>
           <td>{{ order.start_date }}</td>
           <td>{{ order.end_date }}</td>
           <td>{{ order.get_status_display }}</td>
           <td>{{ order.total_cost }} ₽</td>
+          <td>
+              <button type="submit" class="btn btn-link p-0" style="color:red;" style="color:red;" data-toggle="modal" data-target="#confirmDeleteModal{{ order.id }}">
+                <img src="{% static 'img/free-icon-delete.png' %}" alt="Удалить" width="20">
+              </button>
+            </form>
+            <!-- Модальное окно для подтверждения удаления -->
+            <div class="modal fade" id="confirmDeleteModal{{ order.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    Вы уверены, что хотите удалить заказ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Нет</button>
+                    <form action="{% url 'orders:delete_order' order.id %}" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-danger">Да</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
@@ -47,4 +69,8 @@
     <p>У вас пока нет заказов.</p>
   {% endif %}
   <a href="{% url 'profile_update' %}" class="btn btn-dark text-white mt-3">Управление профилем</a>
+{% endblock %}
+{% block extra_js %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock %}
