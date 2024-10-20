@@ -16,13 +16,6 @@ class CreateOrderView(CreateView):
     template_name = 'orders/order_form.html'
     success_url = reverse_lazy('profile')
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        form.instance.technique = Technique.objects.get(pk=self.kwargs['technique_id'])
-        rental_duration = (form.instance.end_date - form.instance.start_date).days
-        form.instance.total_cost = rental_duration * form.instance.technique.daily_rate
-        return super().form_valid(form)
-
 
 @login_required
 def delete_order(request, order_id):
@@ -41,7 +34,7 @@ def ajax_order_form(request, technique_id):
             order = form.save(commit=False)
             order.user = request.user
             order.technique = technique
-            rental_duration = (order.end_date - order.start_date).days
+            rental_duration = (order.end_date - order.start_date).days + 1
             order.total_cost = rental_duration * technique.daily_rate
             order.save()
             return JsonResponse({'message': 'Заказ успешно оформлен!'})
