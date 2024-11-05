@@ -1,5 +1,5 @@
 server {
-    server_name ннк-сервис.рф;
+    server_name ннк-сервис.рф www.ннк-сервис.рф;
     client_max_body_size 100M;
 
     error_page 500 502 503 504 /50x.html;
@@ -30,11 +30,8 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 }
 server {
-    if ($host = ннк-сервис.рф) {
-        return 301 https://$host$request_uri;
-    }
-
     listen 80;
-    server_name ннк-сервис.рф;
-    return 404;
+    server_name ннк-сервис.рф www.ннк-сервис.рф;
+    return 301 https://$host$request_uri;
 }
+

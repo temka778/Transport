@@ -1,13 +1,13 @@
 from django.contrib.auth import views
 from django.urls import path
 
-from .views import SignUp, Profile, signup_done, ProfileUpdateView
+from .views import SignUp, Profile, signup_done, ProfileUpdateView, CustomLoginView
 
 
 urlpatterns = [
     path("signup/", SignUp.as_view(), name="signup"),
     path("signup_done/", signup_done, name="signup_done"),
-    path("login/", views.LoginView.as_view(template_name="users/login.html"), name="login"),
+    path("login/", CustomLoginView.as_view(template_name="users/login.html"), name="login"),
     path('update/', ProfileUpdateView.as_view(), name='profile_update'),
     path("logout/", views.LogoutView.as_view(), name="logout"),
     path("password_change/done/", views.PasswordChangeDoneView.as_view(template_name='users/password_change_done.html'), name="password_change_done"),
