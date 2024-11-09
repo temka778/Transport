@@ -1,18 +1,9 @@
-from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import JsonResponse
 from .models import Order
 from .forms import OrderForm
 from services.models import Technique
 from django.contrib.auth.decorators import login_required
-
-
-class CreateOrderView(CreateView):
-    model = Order
-    form_class = OrderForm
-    template_name = 'orders/order_form.html'
-    success_url = reverse_lazy('profile')
 
 
 @login_required

@@ -2,18 +2,17 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView
-from django.views.decorators.cache import never_cache
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import views as auth_views
 from django.utils.crypto import get_random_string
-from django.utils.decorators import method_decorator
 from django.core.mail import send_mail
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import CreationForm, ProfileUpdateForm
+from .mixins import RedirectAuthenticatedUserMixin
 from .models import User
 
 
-class SignUp(CreateView):
+class SignUp(RedirectAuthenticatedUserMixin, CreateView):
     form_class = CreationForm
     success_url = reverse_lazy('signup_done')
     template_name = 'users/signup.html'
@@ -39,11 +38,8 @@ def signup_done(request):
     return render(request, template)
 
 
-class CustomLoginView(auth_views.LoginView):
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect('index')
-        return super().dispatch(request, *args, **kwargs)
+class CustomLoginView(RedirectAuthenticatedUserMixin, auth_views.LoginView):
+    pass
 
 
 class Profile(LoginRequiredMixin, DetailView):
