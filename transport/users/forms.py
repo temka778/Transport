@@ -1,5 +1,6 @@
 from django import forms
-from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.forms import UserChangeForm, PasswordResetForm
+from django.core.exceptions import ValidationError
 from .models import User
 
 class CreationForm(forms.ModelForm):
@@ -16,3 +17,11 @@ class ProfileUpdateForm(UserChangeForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields.pop('password', None)
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if not User.objects.filter(email=email).exists():
+            raise ValidationError("Пользователь с такой почтой не зарегистрирован.")
+        return email

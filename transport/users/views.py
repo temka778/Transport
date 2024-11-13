@@ -3,11 +3,11 @@ from django.views.generic import CreateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView, PasswordResetView
 from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
 from django.shortcuts import render
-from .forms import CreationForm, ProfileUpdateForm
+from .forms import CreationForm, ProfileUpdateForm, CustomPasswordResetForm
 from .mixins import RedirectAuthenticatedUserMixin
 from .models import User
 
@@ -38,7 +38,7 @@ def signup_done(request):
     return render(request, template)
 
 
-class CustomLoginView(RedirectAuthenticatedUserMixin, auth_views.LoginView):
+class CustomLoginView(RedirectAuthenticatedUserMixin, LoginView):
     pass
 
 
@@ -64,3 +64,7 @@ class ProfileUpdateView(UpdateView):
 
     def get_object(self):
         return self.request.user
+
+
+class CustomPasswordResetView(PasswordResetView):
+    form_class = CustomPasswordResetForm
