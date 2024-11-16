@@ -12,7 +12,7 @@ def index(request):
 
 class TechniqueDetail(DetailView):
     model = Technique
-    template_name = 'technique_detail.html'
+    template_name = 'services/technique_detail.html'
     context_object_name = 'technique'
 
     def get_context_data(self, **kwargs):

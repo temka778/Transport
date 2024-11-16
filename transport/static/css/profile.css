@@ -1,0 +1,57 @@
+/* Стиль для фото профиля */
+.profile-photo {
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+.technique-link {
+    color: black;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+/* Стили для отображения таблицы на больших экранах */
+@media (min-width: 992px) {
+  .order-cards {
+    display: none;
+  }
+}
+
+/* Стили для отображения карточек на экранах меньше 992px */
+@media (max-width: 991px) {
+  .orders-table {
+    display: none;
+  }
+  
+  .order-card h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+}
+
+/* Стили для карточек заказов */
+.order-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.order-card-image img {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.order-card-content {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.order-card p {
+  margin-bottom: 0.5rem;
+}
