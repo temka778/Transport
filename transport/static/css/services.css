@@ -1,0 +1,43 @@
+/* Стили для карточек техники */
+.card {
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый фон */
+    border: none; /* Убираем стандартные границы */
+    border-radius: 15px; /* Закругляем углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Лёгкая тень */
+    overflow: hidden; /* Скрываем выходящий за рамки контент */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анимация при наведении */
+}
+
+/* Эффект подъёма при наведении */
+.card:hover {
+    transform: translateY(-7px); /* Подъём карточки */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Усиление тени */
+}
+
+/* Изображения в карточках */
+.card-img-top {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Разделительная линия */
+}
+
+/* Стили для текстового блока в случае отсутствия изображения */
+.card .bg-light {
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Стили для заголовков */
+.card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Общие стили для ссылок */
+.text-decoration-none.text-dark:hover {
+    text-decoration: none;
+    color: #007bff; /* Изменяем цвет текста при наведении */
+}

@@ -2,85 +2,91 @@
 
 /* Стили для контейнера шапки */
 .header-container {
-    background-color: #f8f9fa;
+    background-color: rgba(0, 0, 0, 0.3); /* Полупрозрачный фон */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Тень */
     padding: 10px 0;
   }
   
-  /* Общие стили для контейнера */
-  .header-container .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  /* Контактная информация */
+/* Общие стили для контейнера */
+.header-container .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Контактная информация */
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.3rem; /* Увеличиваем размер шрифта */
+  font-weight: bold; /* Делаем текст жирнее */
+  color: #cac79a;
+}
+.contact-info a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Настройки для экранов уже 522px */
+@media (max-width: 522px) {
   .contact-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 1.1rem; /* Увеличиваем размер шрифта */
-    font-weight: bold; /* Делаем текст жирнее */
+    font-size: 1.1rem; /* Уменьшаем размер шрифта */
   }
+}
 
-  .contact-info a {
-    color: #000; /* Делаем текст черным для лучшей видимости */
-    text-decoration: none;
-  }
-  
-  .contact-info a:hover {
-    text-decoration: underline; /* Подчеркивание при наведении */
-  }
-
-  /* Настройки для экранов уже 430px */
-  @media (max-width: 460px) {
-      .contact-info {
-        font-size: 0.9rem; /* Уменьшаем размер шрифта */
-      }
-    }
-  
-  @media (max-width: 390px) {
+/* Настройки для экранов уже 430px */
+@media (max-width: 460px) {
     .contact-info {
-      font-size: 0.7rem; /* Уменьшаем размер шрифта */
+      font-size: 0.9rem; /* Уменьшаем размер шрифта */
     }
   }
 
-  /* Настройки для экрана 767-991px */
-  @media (min-width: 767px) and (max-width: 991px) {
-    /* Оставляем логотип и кнопки аутентификации на своих местах */
-    .header-container .container {
-        flex-direction: row;
-        align-items: center;
-    }
-  
-    /* Контактная информация по центру, с номером телефона сверху и почтой снизу */
-    .contact-info {
-        flex-direction: column;
-        text-align: center;
-        width: auto;
-        gap: 5px;
-    }
+@media (max-width: 390px) {
+  .contact-info {
+    font-size: 0.7rem; /* Уменьшаем размер шрифта */
   }
-
-  /* Настройки для мобильных устройств */
-  @media (max-width: 767px) {
-    .header-container .container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .contact-info {
+}
+/* Настройки для экрана 767-991px */
+@media (min-width: 767px) and (max-width: 991px) {
+  /* Оставляем логотип и кнопки аутентификации на своих местах */
+  .header-container .container {
       flex-direction: row;
-      justify-content: center;
-      width: 100%;
-      gap: 10px;
-      margin-top: 10px;
-    }
-  
-    /* Выравнивание кнопок аутентификации справа */
-    .header-container .d-flex.justify-content-end {
-      align-self: flex-end;
-      margin-top: 10px;
-    }
+      align-items: center;
   }
+
+  /* Контактная информация по центру, с номером телефона сверху и почтой снизу */
+  .contact-info {
+      flex-direction: column;
+      text-align: center;
+      width: auto;
+      gap: 5px;
+  }
+}
+/* Настройки для мобильных устройств */
+@media (max-width: 767px) {
+  .header-container .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-info {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  /* Выравнивание кнопок аутентификации справа */
+  .header-container .d-flex.justify-content-end {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+}
   

@@ -1,8 +1,45 @@
-.custom-margin {
-  margin-right: 20px; /* Примерно 2 см */
+/* Центрирование и стили для блока "О нас" */
+.about {
+  display: flex; /* Используем flexbox для центрирования */
+  justify-content: center; /* Горизонтальное центрирование */
+  align-items: center; /* Вертикальное центрирование */
+  padding: 20px; /* Внутренние отступы */
+  background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Лёгкая тень */
+  border-radius: 5px; /* Закруглённые углы */
 }
 
-.col-md-4 {
-  background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
-  padding: 20px;
+/* Для текста внутри */
+.about h1 {
+  text-align: center;
+  font-size: 3rem; /* Увеличенный размер шрифта */
+  margin-bottom: 15px;
+  color: #333;
+  font-family: "Gentium Book Plus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Настройки для экранов уже 1399px */
+@media (max-width: 1399px) {
+  .about h1 {
+    font-size: 2rem; /* Уменьшаем размер шрифта */
+  }
+}
+
+.about p {
+  font-size: 1.4rem; /* Размер шрифта для текста */
+  line-height: 1.6; /* Улучшенная читаемость */
+  text-align: center; /* Текст по центру */
+  color: #333;
+  font-family: "Gentium Book Plus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Настройки для экранов уже 1399px */
+@media (max-width: 1399px) {
+  .about p {
+    font-size: 1rem; /* Уменьшаем размер шрифта */
+  }
 }

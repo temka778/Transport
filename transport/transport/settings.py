@@ -12,7 +12,6 @@ ALLOWED_HOSTS = ['212.67.11.71', '127.0.0.1', 'localhost', 'xn----dtbingra1ahe.x
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
-    'api.apps.ApiConfig',
     'orders.apps.OrdersConfig',
     'services.apps.ServicesConfig',
     'core.apps.CoreConfig',

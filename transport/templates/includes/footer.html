@@ -1,3 +1,7 @@
-<div class="container d-flex justify-content-center">
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+<div class="footer">
   © {{ year }} ООО «ННК-Сервис»
 </div>
