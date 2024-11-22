@@ -69,3 +69,20 @@ main.container {
     max-width: 100%;
   }
 }
+
+main.container h1 {
+  text-align: center;
+  font-size: 3rem; /* Увеличенный размер шрифта */
+  margin-bottom: 15px;
+  font-weight: bold; /* Жирный текст */
+  background: linear-gradient(to bottom, rgb(170, 255, 33), black); /* Градиент от зелёного к чёрному */
+  background-clip: text; /* Стандартное свойство */
+  -webkit-background-clip: text; /* Для браузеров WebKit */
+  -webkit-text-fill-color: transparent; /* Делаем текст прозрачным для WebKit */
+  text-fill-color: transparent; /* Для совместимости с другими браузерами */
+  text-align: center; /* Центрирование заголовка */
+  margin-bottom: 20px; /* Отступ снизу */
+  font-family: "Gentium Book Plus", serif;
+  font-weight: 400;
+  font-style: normal;
+}

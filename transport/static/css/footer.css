@@ -1,10 +1,43 @@
 /* Общий стиль для футера */
 .footer {
-    background-color: rgba(0, 0, 0, 0.3); /* Полупрозрачный фон */
-    text-align: center;
-    line-height: 100px; /* Центрирование текста по вертикали */
-    width: 100%; /* Футер занимает всю ширину экрана */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); /* Тень для футера */
-    margin-top: auto; /* Для прилипания к низу страницы */
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+    font-size: 0.9rem;
+    width: 100%; /* Устанавливаем ширину футера на всю страницу */
+    box-sizing: border-box; /* Учитываем отступы и границы в ширине */
+}
+
+/* Логотип */
+.footer-logo {
+    max-width: 110px;
+    height: auto;
+}
+
+/* Ссылки футера */
+.footer-link {
     color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.footer-link:hover {
+    color: #b3ff006c;
+}
+
+/* Разделитель между ссылками */
+.footer-divider {
+    color: #ffffff;
+}
+
+/* Информация о компании */
+.footer-company-info {
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Дисклеймер */
+.footer-disclaimer {
+    font-size: 0.8rem; /* Мелкий шрифт */
+    color: #ffffff6e; /* Более светлый цвет текста */
+    text-align: center;
 }

@@ -24,7 +24,7 @@
         {% if user.is_staff %}
           <a href="/admin/" class="btn btn-dark text-white me-2">Админка</a>
         {% endif %}
-        <a href="{% url 'profile' %}" class="btn btn-dark text-white me-2">Профиль</a>
+        <a href="{% url 'profile' %}" class="btn btn-dark text-white me-2">Личный кабинет</a>
         <form method="post" action="{% url 'logout' %}" class="m-0">
           {% csrf_token %}
           <button type="submit" class="btn btn-dark text-white">Выйти</button>

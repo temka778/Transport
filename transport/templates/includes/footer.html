@@ -2,6 +2,33 @@
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'css/footer.css' %}">
 {% endblock %}
-<div class="footer">
-  © {{ year }} ООО «ННК-Сервис»
-</div>
+<footer class="footer">
+  <div class="container">
+    <!-- Основная строка с контентом -->
+    <div class="row align-items-center">
+      <!-- Логотип -->
+      <div class="col-lg-3 col-md-12 text-center text-lg-start mb-3 mb-lg-0">
+        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="footer-logo">
+      </div>
+      <!-- Ссылки -->
+      <div class="col-lg-6 col-md-12 d-flex justify-content-center justify-content-lg-between align-items-center mb-3 mb-lg-0">
+        <a href="#" class="footer-link">ФОРМА ДОГОВОРА</a>
+        <span class="footer-divider">|</span>
+        <a href="#" class="footer-link">ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ</a>
+      </div>
+      <!-- Информация о компании -->
+      <div class="col-lg-3 col-md-12 text-center text-lg-end">
+        <p class="footer-company-info mb-0">ООО «ННК-Сервис»</p>
+        <p class="footer-company-info mb-0">ИНН 6318072939</p>
+        <p class="footer-company-info mb-0">ОГРН 1236300030450</p>
+      </div>
+    </div>
+    <!-- Дисклеймер -->
+    <div class="row">
+      <div class="col-12">
+        <p class="footer-disclaimer">Представленная на сайте информация не является публичной офертой. 
+          Актуальную информацию Вы можете уточнить по тел. +7-927-103-25-44</p>
+      </div>
+    </div>
+  </div>
+</footer>
