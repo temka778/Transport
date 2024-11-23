@@ -20,3 +20,11 @@ class TechniqueDetail(DetailView):
         context['photos'] = self.object.photos.all()
         context['is_authenticated'] = self.request.user.is_authenticated
         return context
+
+
+def agreement_view(request):
+    return render(request, 'services/agreement.html')
+
+
+def privacy_policy_view(request):
+    return render(request, 'services/privacy_policy.html')

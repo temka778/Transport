@@ -18,7 +18,15 @@
     text-decoration: none;
     font-size: 0.9rem;
     white-space: nowrap;
+    margin: 0 5px; /* Отступ вокруг ссылки */
 }
+
+/* Настройки для экранов уже 446px */
+@media (max-width: 446px) {
+    .footer-link {
+      font-size: 0.8rem; /* Уменьшаем размер шрифта */
+    }
+  }
 
 .footer-link:hover {
     color: #b3ff006c;
@@ -27,6 +35,7 @@
 /* Разделитель между ссылками */
 .footer-divider {
     color: #ffffff;
+    margin: 0 5px; /* Отступы вокруг разделителя */
 }
 
 /* Информация о компании */

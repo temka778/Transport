@@ -3,8 +3,8 @@
   display: flex; /* Используем flexbox для центрирования */
   justify-content: center; /* Горизонтальное центрирование */
   align-items: center; /* Вертикальное центрирование */
-  padding: 20px; /* Внутренние отступы */
-  background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный фон */
+  padding: 10px; /* Внутренние отступы */
+  background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Лёгкая тень */
   border-radius: 30px; /* Закруглённые углы */
 }
@@ -34,8 +34,8 @@
   font-style: normal;
 }
 
-/* Настройки для экранов уже 1399px */
-@media (max-width: 1399px) {
+/* Настройки для экранов уже 576px */
+@media (max-width: 576px) {
   .about h1 {
     font-size: 2rem; /* Уменьшаем размер шрифта */
   }
@@ -51,9 +51,16 @@
   font-style: normal;
 }
 
-/* Настройки для экранов уже 1399px */
-@media (max-width: 1399px) {
+/* Настройки для экранов уже 576px */
+@media (max-width: 576px) {
   .about p {
-    font-size: 1rem; /* Уменьшаем размер шрифта */
+    font-size: 1.4rem; /* Уменьшаем размер шрифта */
+  }
+}
+
+/* Настройки для экранов уже 446px */
+@media (max-width: 446px) {
+  .about p {
+    font-size: 1.2rem; /* Уменьшаем размер шрифта */
   }
 }

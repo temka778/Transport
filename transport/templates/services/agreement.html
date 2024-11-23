@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/agreement.css' %}">
+{% endblock %}
+{% block title %}Договор{% endblock %}
+{% block content %}
+  <div class="agreement-container">
+      <div class="word-document">
+          <h3 class="title">ДОГОВОР АРЕНДЫ</h3>
+          <p>Текст договора аренды.</p>
+      </div>
+      <a href="{% static 'doc/ДОГОВОР АРЕНДЫ.docx' %}" class="btn btn-dark text-white download-button">Скачать договор</a>
+  </div>
+{% endblock %}

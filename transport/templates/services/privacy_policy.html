@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/privacy_policy.css' %}">
+{% endblock %}
+{% block title %}Политика конфиденциальности{% endblock %}
+{% block content %}
+  <div class="agreement-container">
+      <div class="word-document">
+          <h3 class="title">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h3>
+          <p>Текст политики конфиденциальности.</p>
+      </div>
+  </div>
+{% endblock %}

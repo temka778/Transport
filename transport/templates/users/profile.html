@@ -6,16 +6,19 @@
 {% block title %}Личный кабинет{% endblock %}
 {% block content %}
   <h1>Личный кабинет</h1>
-  {% if user.photo %}
-    <img src="{{ user.photo.url }}" alt="Фото профиля" class="img-fluid profile-photo mb-3" width="250">
-  {% else %}
-    <p>Фото Вашего профиля пока что не загружено.</p>
-  {% endif %}
-  <p><strong>Имя:</strong> {{ user.first_name }}</p>
-  <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
-  <p><strong>Электронная почта:</strong> {{ user.email }}</p>
-  <p><strong>Телефон:</strong> {{ user.phone_number }}</p>
-  <h4>Ваши заказы:</h4>
+  <div class="profile-header d-flex align-items-center mb-4">
+    {% if user.photo %}
+      <img src="{{ user.photo.url }}" alt="Фото профиля" class="img-fluid profile-photo mr-4">
+    {% else %}
+      <div class="placeholder-photo mr-4">Нет фото</div>
+    {% endif %}
+    <div class="profile-info">
+      <p class="profile-name"><strong>{{ user.first_name }} {{ user.last_name }}</strong></p>
+      <p class="profile-email"><strong>Электронная почта:</strong> {{ user.email }}</p>
+      <p class="profile-phone"><strong>Телефон:</strong> {{ user.phone_number }}</p>
+    </div>
+  </div>
+  <h4>Мои заказы:</h4>
   {% if orders %}
     <div class="orders-table">
       <table class="table">

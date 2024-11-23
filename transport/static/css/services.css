@@ -10,8 +10,8 @@
 
 /* Эффект подъёма при наведении */
 .card:hover {
-    transform: translateY(-7px); /* Подъём карточки */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Усиление тени */
+    transform: translateY(-9px); /* Подъём карточки */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 9); /* Усиление тени */
 }
 
 /* Изображения в карточках */
@@ -29,7 +29,7 @@
 
 /* Стили для заголовков */
 .card-title {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: bold;
     text-align: center;
     color: #333;

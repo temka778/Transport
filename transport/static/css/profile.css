@@ -6,10 +6,66 @@ main.container {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Лёгкая тень для выделения */
 }
 
-/* Стиль для фото профиля */
+.profile-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.profile-info {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.profile-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
 .profile-photo {
-  border-radius: 20px;
-  border: 1px solid #ddd;
+  width: 200px;
+  height: 200px;
+  border-radius: 40%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+  margin-right: 20px;
+}
+
+.placeholder-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 40%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 1rem;
+  text-align: center;
+  margin-right: 20px;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-photo, .placeholder-photo {
+    margin-bottom: 1rem;
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-info {
+    font-size: 1rem;
+  }
+
+  .profile-name {
+    font-size: 1.2rem;
+  }
 }
 
 .technique-link {
