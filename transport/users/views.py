@@ -32,6 +32,15 @@ class SignUp(RedirectAuthenticatedUserMixin, CreateView):
             [user.email],
             fail_silently=False,
         )
+        send_mail(
+            'У нас новый пользователь!',
+            f'На сайте зарегистрировался новый пользователь!\n'
+            f'Телефон: {user.phone_number}\n'
+            f'Email: {user.email}\n',
+            None,
+            ['nnk@ннк-сервис.рф'],  # Почта компании
+            fail_silently=False,
+        )
         self.request.session['allow_signup_done'] = True
         return super().form_valid(form)
 

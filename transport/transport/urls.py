@@ -12,7 +12,7 @@ sitemaps = {'techniques': TechniqueSitemap,}
 urlpatterns = [
     path('', include('services.urls')),
     path('admin/', admin.site.urls),
-    path('user/', include('users.urls')),
+    path('users/', include('users.urls')),
     path('orders/', include('orders.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap')
 ]

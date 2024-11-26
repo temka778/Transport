@@ -8,7 +8,9 @@
     <div class="row align-items-center">
       <!-- Логотип -->
       <div class="col-lg-3 col-md-12 text-center text-lg-start mb-3 mb-lg-0">
-        <img src="{% static 'img/logo.png' %}" alt="Логотип" class="footer-logo">
+        <a href="{% url 'index' %}">
+          <img src="{% static 'img/logo.png' %}" alt="Логотип" class="footer-logo">
+        </a>
       </div>
       <!-- Ссылки -->
       <div class="col-lg-6 col-md-12 d-flex justify-content-center justify-content-lg-between align-items-center mb-3 mb-lg-0">

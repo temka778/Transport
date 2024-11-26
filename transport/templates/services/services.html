@@ -9,7 +9,7 @@
         <a href="{% url 'technique_detail' unit.id %}" class="text-decoration-none text-dark">
           <div class="card h-100">
             {% if unit.image %}
-              <img src="{{ unit.image.url }}" class="card-img-top" alt="{{ unit.name }}">
+              <img src="{{ unit.image.url }}" class="card-img-top" alt="Изображение">
             {% else %}
               <div class="card-img-top bg-light text-center py-5">
                 <p>No image available</p>

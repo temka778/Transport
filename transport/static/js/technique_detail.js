@@ -171,7 +171,7 @@ document.addEventListener('submit', function(event) {
       xhr.onload = function() {
           if (xhr.status >= 200 && xhr.status < 400) {
               // Перенаправляем пользователя на страницу его профиля после успешного заказа
-              window.location.href = '/user/';
+              window.location.href = '/users/';
           } else {
               // Обработка ошибок
               alert('Ошибка при отправке заказа.');

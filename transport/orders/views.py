@@ -1,9 +1,10 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.http import JsonResponse
-from .models import Order
-from .forms import OrderForm
+from django.core.mail import send_mail
 from services.models import Technique
 from django.contrib.auth.decorators import login_required
+from .models import Order
+from .forms import OrderForm
 
 
 @login_required
@@ -26,6 +27,21 @@ def ajax_order_form(request, technique_id):
             rental_duration = (order.end_date - order.start_date).days + 1
             order.total_cost = rental_duration * technique.daily_rate
             order.save()
+            send_mail(
+                'Новый заказ!',
+                (
+                    f'Поступил новый заказ!\n'
+                    f'Номер телефона заказчика: {order.user.phone_number};\n'
+                    f'Электронная почта заказчика: {order.user.email};\n'
+                    f'Техника: {technique.name};\n'
+                    f'Требования заказчика: {order.additional_requirements};\n'
+                    f'Начало аренды: {order.start_date};\n'
+                    f'Окончание аренды: {order.end_date};\n'
+                    f'Общая стоимость: {order.total_cost} руб.'
+                ),
+                None,
+                ['nnk@ннк-сервис.рф'],  # Почта компании
+            )
             return JsonResponse({'message': 'Заказ успешно оформлен!'})
         else:
             return JsonResponse({'errors': form.errors}, status=400)

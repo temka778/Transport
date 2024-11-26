@@ -11,7 +11,7 @@
 .word-document {
     width: calc(210mm * 0.5); /* Ширина листа A4 */
     height: calc(297mm * 0.5); /* Высота листа A4 */
-    background: rgb(255, 255, 255, 0.8);
+    background: rgb(255, 255, 255, 0.88);
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 4px 9px rgb(0, 0, 0);
