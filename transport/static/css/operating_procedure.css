@@ -1,0 +1,72 @@
+.how-we-work {
+    background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Лёгкая тень */
+    border-radius: 15px; /* Закруглённые углы */
+    text-align: center;
+    padding: 20px;
+}
+
+.how-we-work h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 130px;
+    max-width: 1200px; /* Лимит ширины контейнера */
+    margin: 0 auto; /* Центрирует шаги */
+}
+
+.step {
+    text-align: center; /* Центрирует текст */
+    max-width: 120px;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px; /* Центрируем и добавляем отступ снизу */
+}
+
+.icon img {
+    width: 100%; /* Устанавливаем ширину в пределах контейнера */
+    height: auto; /* Сохраняем пропорции изображения */
+    display: block; /* Убираем возможные дополнительные отступы у изображения */
+    margin: 0 auto; /* Центрируем изображение внутри контейнера */
+}
+
+.step p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center; /* На случай, если это потребуется дополнительно */
+}
+
+@media (max-width: 1399px) {
+    .steps {
+        flex-wrap: wrap;
+        gap: 20px; /* Уменьшаем промежутки между шагами */
+    }
+
+    .step {
+        flex: 1 1 45%; /* Два шага в строку на планшетах */
+    }
+
+    .step p {
+        font-size: 15px;
+        font-weight: bold;
+        margin: 0;
+        text-align: center; /* На случай, если это потребуется дополнительно */
+    }
+}
+
+@media (max-width: 480px) {
+    .step {
+        flex: 1 1 100%; /* Один шаг в строку на мобильных устройствах */
+    }
+    .how-we-work h2 {
+        font-size: 20px;
+    }
+}

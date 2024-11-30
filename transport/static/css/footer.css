@@ -42,6 +42,14 @@
 .footer-company-info {
     color: #ffffff;
     margin: 0;
+    font-weight: bold;
+}
+
+/* Информация о компании */
+.footer-company-info-1 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 0.7rem;
 }
 
 /* Дисклеймер */

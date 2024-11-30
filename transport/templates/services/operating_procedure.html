@@ -1,0 +1,29 @@
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/operating_procedure.css' %}">
+{% endblock %}
+<section class="how-we-work">
+    <h2>КАК МЫ РАБОТАЕМ</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="icon"><img src="{% static 'icons/call.png' %}" alt="Звонок"></div>
+            <p>Звонок</p>
+        </div>
+        <div class="step">
+            <div class="icon"><img src="{% static 'icons/contract.png' %}" alt="Договор"></div>
+            <p>Договор</p>
+        </div>
+        <div class="step">
+            <div class="icon"><img src="{% static 'icons/payment.png' %}" alt="Оплата"></div>
+            <p>Оплата</p>
+        </div>
+        <div class="step">
+            <div class="icon"><img src="{% static 'icons/cooperation.png' %}" alt="Сотрудничество"></div>
+            <p>Сотрудничество</p>
+        </div>
+        <div class="step">
+            <div class="icon"><img src="{% static 'icons/document.png' %}" alt="Документы"></div>
+            <p>Документы</p>
+        </div>
+    </div>
+</section>
