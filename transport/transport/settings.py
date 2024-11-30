@@ -4,11 +4,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-mo4m0rc+s20-yd#_3*@&8rw)+*x3+38qtqp*j)c_$+jgn)jg37'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['212.67.11.71', '127.0.0.1', 'localhost', 'xn----dtbingra1ahe.xn--p1ai']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
@@ -89,8 +89,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]      # на локальном сервере
-#STATIC_ROOT = BASE_DIR / 'static'                         # на удалённом сервере
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -107,6 +106,6 @@ EMAIL_HOST = 'smtp.beget.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
-EMAIL_HOST_USER = 'info@xn----dtbingra1ahe.xn--p1ai'
-EMAIL_HOST_PASSWORD = '&FW!!HwlaJ9e'
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

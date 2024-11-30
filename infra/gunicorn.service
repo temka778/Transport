@@ -5,5 +5,9 @@ After=network.target
 User=root
 WorkingDirectory=/home/Transport/transport
 ExecStart=/home/Transport/venv/bin/gunicorn --bind 0.0.0.0:8000 transport.wsgi
+Environment=""
+Environment=""
+Environment=""
+Environment=""
 [Install]
 WantedBy=multi-user.target
