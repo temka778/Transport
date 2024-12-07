@@ -4,6 +4,7 @@ from django.urls import reverse
 
 class Technique(models.Model):
     name = models.CharField('Название', max_length=50)
+    name_genitive = models.CharField('Название (родительный падеж)', max_length=50, blank=True)
     description = models.TextField('Описание')
     hourly_rate = models.DecimalField('Стоимость аренды за час', max_digits=10, decimal_places=2, null=True, blank=True)
     daily_rate = models.DecimalField('Стоимость аренды за день', max_digits=10, decimal_places=2, null=True, blank=True)

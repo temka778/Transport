@@ -29,8 +29,7 @@
 }
 
 .about p {
-  font-size: 1.6rem; /* Размер шрифта для текста */
-  line-height: 1.6; /* Улучшенная читаемость */
+  font-size: 2rem; /* Размер шрифта для текста */
   text-align: center; /* Текст по центру */
   color: #333;
   font-family: "Gentium Book Plus", serif;
