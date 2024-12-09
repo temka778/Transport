@@ -42,7 +42,7 @@ def ajax_order_form(request, technique_id):
                 None,
                 ['nnk@ннк-сервис.рф'],  # Почта компании
             )
-            return JsonResponse({'message': 'Заказ успешно оформлен!'})
+            return JsonResponse({'redirect_url': '/users/'})
         else:
             return JsonResponse({'errors': form.errors}, status=400)
     else:

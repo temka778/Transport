@@ -30,8 +30,8 @@
           <button type="submit" class="btn btn-dark text-white">Выйти</button>
         </form>
       {% else %}
-        <a href="{% url 'login' %}" class="btn btn-dark text-white me-2">Войти</a>
-        <a href="{% url 'signup' %}" class="btn btn-dark text-white">Регистрация</a>
+        <button class="btn btn-dark text-white me-2" onclick="openModal('{% url 'login' %}?next={{ request.path }}'); return false;">Войти</button>
+        <a href="{% url 'signup' %}" class="btn btn-dark text-white me-2">Регистрация</a>
       {% endif %}
     </div>
   </div>

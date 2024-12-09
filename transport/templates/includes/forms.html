@@ -1,11 +1,11 @@
 {% load user_filters %}
 {% csrf_token %}
-{% for i in form %} 
-  <div class="form-group row my-3">
+{% for field in form %}
+  <div class="form-group my-3">
     <label>
-      {{ i.label }}
-      {% if i.field.required %}<span class="required text-danger">*</span>{% endif %}
+      {{ field.label }}
+      {% if field.field.required %}<span class="text-danger">*</span>{% endif %}
     </label>
-    {{ i|addclass:'form-control' }} 
+    {{ field|addclass:'form-control' }}
   </div>
 {% endfor %}

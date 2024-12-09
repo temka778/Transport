@@ -46,38 +46,18 @@
           <li class="list-group-item"><strong>Стоимость аренды:</strong> {{ technique.hourly_rate }} руб./час</li>
         </ul>
         {% if is_authenticated %}
-          <button class="btn btn-dark text-white mt-3" data-bs-toggle="modal" data-bs-target="#orderModal" data-technique-id="{{ technique.id }}">
+          <button 
+            class="btn btn-dark text-white mt-3" 
+            onclick="openModal('{% url 'orders:ajax_order_form' technique.id %}'); return false;">
             Заказать
           </button>
         {% else %}
-          <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-dark text-white mt-3">
-            Заказать
-          </a>
+          <button class="btn btn-dark text-white mt-3" onclick="openModal('{% url 'login' %}?next={{ request.path }}'); return false;">Войти и заказать</button>
         {% endif %}
-      </div>
-    </div>
-  </div>
-
-  <!-- Модальное окно -->
-  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <!-- Здесь будет содержимое формы, загруженное через AJAX -->
-          <div id="order-form-content">
-            <div class="text-center">
-              <div class="spinner-border" role="status">
-                <span class="visually-hidden">Загрузка...</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 {% endblock %}
 {% block extra_js %}
-  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-  <input type="hidden" id="openModalAfterAuth" value="{{ open_modal_after_auth }}">
   <script src="{% static 'js/technique_detail.js' %}"></script>
 {% endblock %}

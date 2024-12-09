@@ -41,6 +41,13 @@
     <footer class="footer">
       {% include 'includes/footer.html' %}
     </footer>
+    {% include 'includes/modal.html' %}
     {% block extra_js %}{% endblock %}
+    <!-- Базовые JavaScript библиотеки -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Поле для передачи данных модального окна -->
+    <input type="hidden" id="openModalAfterAuth" value="{{ open_modal_after_auth }}">
+    <!-- Кастомный JavaScript для модального окна -->
+    <script src="{% static 'js/modal.js' %}"></script>
   </body>
 </html>

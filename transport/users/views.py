@@ -6,6 +6,7 @@ from django.views.generic.edit import UpdateView
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetConfirmView, PasswordChangeView
+from django.http import JsonResponse
 from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
@@ -53,7 +54,17 @@ def signup_done(request):
 
 
 class CustomLoginView(RedirectAuthenticatedUserMixin, LoginView):
-    template_name="users/login.html"
+    template_name = "users/login.html"
+    def post(self, request, *args, **kwargs):
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            form = self.get_form()
+            if form.is_valid():
+                self.form_valid(form)
+                redirect_url = request.POST.get('next')
+                return JsonResponse({'redirect_url': redirect_url})
+            else:
+                return JsonResponse({'errors': form.errors}, status=400)
+        return super().post(request, *args, **kwargs)
 
 
 class Profile(LoginRequiredMixin, DetailView):
