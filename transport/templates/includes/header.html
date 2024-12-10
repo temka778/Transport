@@ -31,7 +31,7 @@
         </form>
       {% else %}
         <button class="btn btn-dark text-white me-2" onclick="openModal('{% url 'login' %}?next={{ request.path }}'); return false;">Войти</button>
-        <a href="{% url 'signup' %}" class="btn btn-dark text-white me-2">Регистрация</a>
+        <button class="btn btn-dark text-white me-2" onclick="openModal('{% url 'signup' %}'); return false;">Регистрация</button>
       {% endif %}
     </div>
   </div>

@@ -11,13 +11,12 @@ from django.utils.crypto import get_random_string
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from .forms import CreationForm, ProfileUpdateForm, CustomPasswordResetForm
-from .mixins import RedirectAuthenticatedUserMixin
+from transport.utils.mixins import AjaxOnlyMixin
 from .models import User
 
 
-class SignUp(RedirectAuthenticatedUserMixin, CreateView):
+class SignUp(AjaxOnlyMixin, CreateView):
     form_class = CreationForm
-    success_url = reverse_lazy('signup_done')
     template_name = 'users/signup.html'
 
     def form_valid(self, form):
@@ -43,7 +42,10 @@ class SignUp(RedirectAuthenticatedUserMixin, CreateView):
             fail_silently=False,
         )
         self.request.session['allow_signup_done'] = True
-        return super().form_valid(form)
+        return JsonResponse({'redirect_url': 'users/signup_done/'})
+    
+    def form_invalid(self, form):
+        return JsonResponse({'errors': form.errors}, status=400)
 
 
 def signup_done(request):
@@ -53,18 +55,17 @@ def signup_done(request):
     return render(request, template)
 
 
-class CustomLoginView(RedirectAuthenticatedUserMixin, LoginView):
+class CustomLoginView(AjaxOnlyMixin, LoginView):
     template_name = "users/login.html"
+
     def post(self, request, *args, **kwargs):
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            form = self.get_form()
-            if form.is_valid():
-                self.form_valid(form)
-                redirect_url = request.POST.get('next')
-                return JsonResponse({'redirect_url': redirect_url})
-            else:
-                return JsonResponse({'errors': form.errors}, status=400)
-        return super().post(request, *args, **kwargs)
+        form = self.get_form()
+        if form.is_valid():
+            self.form_valid(form)
+            redirect_url = request.POST.get('next')
+            return JsonResponse({'redirect_url': redirect_url})
+        else:
+            return JsonResponse({'errors': form.errors}, status=400)
 
 
 class Profile(LoginRequiredMixin, DetailView):

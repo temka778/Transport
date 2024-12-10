@@ -48,7 +48,7 @@
         {% if is_authenticated %}
           <button 
             class="btn btn-dark text-white mt-3" 
-            onclick="openModal('{% url 'orders:ajax_order_form' technique.id %}'); return false;">
+            onclick="openModal('{% url 'orders:create_order' technique.id %}'); return false;">
             Заказать
           </button>
         {% else %}

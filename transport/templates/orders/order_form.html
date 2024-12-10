@@ -1,5 +1,5 @@
 <div class="card-body">
-  <form method="post" action="{% url 'orders:ajax_order_form' technique.id %}" id="order-form">
+  <form method="post" action="{% url 'orders:create_order' technique.id %}" id="order-form">
     {% csrf_token %}
     {% include 'includes/forms.html' %}
     <div class="text-center">
