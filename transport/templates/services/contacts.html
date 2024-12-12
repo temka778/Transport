@@ -1,21 +1,41 @@
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+{% endblock %}
 <div class="mt-5 d-flex justify-content-between align-items-start flex-wrap">
-  <div class="me-4 mb-3">
-    <br>
-    <a href="tel:+79271032544" class="btn btn-dark text-white mb-2" style="display: inline-flex; align-items: center;">
-      <i class="fas fa-phone-alt fa-lg me-2"></i> Позвонить нам
-    </a>
-    <br>
-    <a href="mailto:nnk@ннк-сервис.рф" class="btn btn-dark text-white mb-2" style="display: inline-flex; align-items: center;">
-      <i class="fas fa-envelope fa-lg me-2"></i> Написать на почту
-    </a>
-    <br>
-    <a href="https://t.me/nnk_service" target="_blank" class="btn btn-dark text-white mb-2" style="display: inline-flex; align-items: center;">
-      <i class="fab fa-telegram fa-lg me-2"></i> Подписаться на наш канал
-    </a>
-    <br>
-    <a href="https://t.me/chat_nnk_service" target="_blank" class="btn btn-dark text-white" style="display: inline-flex; align-items: center;">
-      <i class="fab fa-telegram fa-lg me-2"></i> Перейти в чат
-    </a>
+  <div class="me-4 mb-3 contact">
+    <div class="contact-item d-flex align-items-center">
+      <i class="fas fa-phone-alt desktop-icon text-danger d-none d-lg-inline"></i>
+      <a href="tel:+79271032544" class="btn btn-dark text-white mb-2 mobile-only d-inline d-lg-none" style="display: inline-flex; align-items: center;">
+        <i class="fas fa-phone-alt fa-lg me-2"></i> Позвонить нам
+      </a>
+      <span class="contact-text-1 ms-3 d-none d-lg-inline">Телефон:</span>
+      <span class="contact-text-2 ms-3 d-none d-lg-inline">+7 (927) 103-25-44</span>
+    </div>
+    <div class="contact-item d-flex align-items-center">
+      <i class="fas fa-envelope desktop-icon text-warning d-none d-lg-inline"></i>
+      <a href="mailto:nnk@ннк-сервис.рф" class="btn btn-dark text-white mb-2 mobile-only d-inline d-lg-none" style="display: inline-flex; align-items: center;">
+        <i class="fas fa-envelope fa-lg me-2"></i> Написать на почту
+      </a>
+      <span class="contact-text-1 ms-3 d-none d-lg-inline">Электронная почта:</span>
+      <span class="contact-text-2 ms-3 d-none d-lg-inline">nnk@ннк-сервис.рф</span>
+    </div>
+    <div class="contact-item d-flex align-items-center">
+      <i class="fab fa-telegram desktop-icon text-primary d-none d-lg-inline"></i>
+      <a href="https://t.me/nnk_service" target="_blank" class="btn btn-dark text-white mb-2 mobile-only d-inline d-lg-none" style="display: inline-flex; align-items: center;">
+        <i class="fab fa-telegram fa-lg me-2"></i> Подписаться на наш канал
+      </a>
+      <span class="contact-text-1 ms-3 d-none d-lg-inline">Телеграм-канал:</span>
+      <span class="contact-text-2 ms-3 d-none d-lg-inline">@nnk_service</span>
+    </div>
+    <div class="contact-item d-flex align-items-center">
+      <i class="fab fa-telegram desktop-icon text-primary d-none d-lg-inline"></i>
+      <a href="https://t.me/chat_nnk_service" target="_blank" class="btn btn-dark text-white mb-2 mobile-only d-inline d-lg-none" style="display: inline-flex; align-items: center;">
+        <i class="fab fa-telegram fa-lg me-2"></i> Перейти в чат
+      </a>
+      <span class="contact-text-1 ms-3 d-none d-lg-inline">Телеграм-чат:</span>
+      <span class="contact-text-2 ms-3 d-none d-lg-inline">@chat_nnk_service</span>
+    </div>
   </div>
   <div style="width: 100%; max-width: 560px;">
     <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=151278336386" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>

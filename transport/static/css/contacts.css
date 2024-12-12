@@ -1,0 +1,46 @@
+/* Стили для десктопов */
+@media (min-width: 992px) {
+    .contact {
+      background-color: rgba(255, 255, 255, 0.7); /* Полупрозрачный фон */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Легкая тень */
+      border-radius: 15px; /* Закругленные углы */
+      padding: 20px; /* Отступы внутри */
+    }
+  
+    .contact-item {
+      margin-bottom: 20px;
+    }
+  
+    .desktop-icon {
+      font-size: 30px;
+      display: inline-block;
+      width: 36px;
+      text-align: center;
+    }
+
+    .contact-text-1 {
+        font-size: 20px;
+        font-weight: bold;
+        display: inline-block;
+      }
+    
+    .contact-text-2 {
+      font-size: 23px;
+      font-weight: bold;
+      display: inline-block;
+      border-radius: 7px; 
+      background-color: transparent; 
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .contact-text-2:hover {
+        background-color: rgba(35, 59, 8, 0.801); /* Легкий фон при наведении */
+        border-radius: 7px; /* Закругленные углы */
+        color: #ffffff;
+    }
+  
+    .mobile-only {
+      display: none;
+    }
+  }
+  

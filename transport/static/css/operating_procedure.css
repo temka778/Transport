@@ -47,7 +47,7 @@
 @media (max-width: 1399px) {
     .steps {
         flex-wrap: wrap;
-        gap: 20px; /* Уменьшаем промежутки между шагами */
+        gap: 60px; /* Уменьшаем промежутки между шагами */
     }
 
     .step {
@@ -62,11 +62,24 @@
     }
 }
 
+@media (max-width: 991px) {
+    .steps {
+        flex-wrap: wrap;
+        gap: 5px; /* Уменьшаем промежутки между шагами */
+    }
+
+    .icon {
+        width: 45px;
+        height: 45px;
+        margin: 0 auto 20px; /* Центрируем и добавляем отступ снизу */
+    }
+}
+
 @media (max-width: 480px) {
     .step {
         flex: 1 1 100%; /* Один шаг в строку на мобильных устройствах */
     }
     .how-we-work h2 {
-        font-size: 20px;
+        font-size: 25px;
     }
 }
