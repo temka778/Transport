@@ -1,0 +1,132 @@
+/* Общий фон для содержимого main */
+main.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Белый полупрозрачный фон */
+    border-radius: 8px; /* Сглаженные углы */
+    padding: 20px; /* Внутренние отступы для более приятного оформления */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Лёгкая тень для выделения */
+    font-family: 'Arial', sans-serif; /* Шрифт */
+  }
+
+/* Карточки приложений */
+.app-orders.module,
+.app-services.module,
+.app-users.module,
+.app-auth.module {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.app-orders.module:hover,
+.app-services.module:hover,
+.app-users.module:hover,
+.app-auth.module:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Заголовок разделов (caption) */
+caption {
+    font-size: 0rem;
+    margin-bottom: 0px;
+}
+
+/* Ссылки в таблицах */
+th a,
+td a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+th a:hover,
+td a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Кнопки "Добавить" и "Изменить" */
+.addlink,
+.viewlink,
+.changelink {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #000000c4; 
+    border-radius: 4px;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.addlink:hover,
+.viewlink:hover,
+.changelink:hover {
+    background-color: #97979770; 
+}
+
+/* Убираем синюю заливку у th */
+th {
+    background-color: #e9e7e7; /* Серый фон */
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* Стилизация таблиц */
+table {
+    background-color: #feffc254;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Отступы для основного контента */
+#content-main {
+    padding: 10px;
+}
+
+.results {
+    overflow-x: auto; /* Горизонтальный скроллинг, если таблица шире контейнера */
+    max-width: 100%; /* Ширина не больше контейнера */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.results table {
+    width: 100%; /* Таблица будет занимать всю доступную ширину */
+    border-collapse: collapse; /* Убираем двойные границы между ячейками */
+}
+
+.results th,
+.results td {
+    padding: 8px; /* Внутренний отступ */
+    border: 1px solid #ddd; /* Границы ячеек */
+    text-align: center; /* Выравнивание текста по центру */
+    white-space: normal; /* Запрещаем перенос текста */
+    text-align: left; /* Текст будет выравниваться по левому краю */
+}
+
+.results th {
+    background-color: #f2f2f2; /* Цвет фона заголовков таблицы */
+    font-weight: bold;
+}
+
+.results tr:nth-child(even) {
+    background-color: #f9f9f9; /* Чередование строк */
+}
+
+.results tr:hover {
+    background-color: #f1f1f1; /* Цвет фона при наведении */
+}
